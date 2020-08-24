@@ -10,5 +10,7 @@ RUN mkdir /app
 WORKDIR /app
 COPY ./app /app
 
-RUN adduser user
+RUN addgroup developer
+RUN adduser user --disabled-password
+RUN usermod -a -G developer user
 USER user
