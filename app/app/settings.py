@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'app_core',
-    'user'
+    'user',
+    'recipe'
 ]
 
 MIDDLEWARE = [
