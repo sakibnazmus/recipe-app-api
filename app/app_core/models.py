@@ -6,9 +6,10 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, \
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email or email.isspace():
-            raise ValueError
+            raise ValueError('Users must have an email address')
+
         user = self.model(email=self.normalize_email(email), **extra_fields)
-        password = user.set_password(password)
+        user.set_password(password)
         user.save(using=self._db)
         return user
 
